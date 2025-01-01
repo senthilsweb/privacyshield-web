@@ -18,12 +18,6 @@ interface ProcessedResponse {
   endpoint?: string;
 }
 
-interface FormData {
-  endpoint: string;
-  processed_text: string;
-  anonymized_text: string;
-}
-
 interface EntityStyle {
   bg: string;
   text: string;
@@ -116,30 +110,12 @@ const AnonymizePage = () => {
   const formRef = useRef<AnonymizeFormRef>(null);
   const { toast } = useToast();
 
-  const handleButtonClick = async (data: FormData) => {
-    setIsLoading(true);
-    setResponse(null);
-    setError("");
-    
-    const isAnonymizeOnlyOp = data.endpoint === '/detect-pii-entities';
-    setIsAnonymizeOnly(isAnonymizeOnlyOp);
-    
-    try {
-      await new Promise(resolve => setTimeout(resolve, 3000));
-      
-      handleResponse({
-        ...data,
-        anonymized_text: isAnonymizeOnlyOp ? data.processed_text : data.anonymized_text,
-        processed_text: isAnonymizeOnlyOp ? '' : data.processed_text
-      });
-    } catch (err) {
-      handleError(err instanceof Error ? err.message : 'An error occurred');
-    }
-  };
-
   const handleResponse = (data: ProcessedResponse) => {
     setResponse(data);
     setIsLoading(false);
+    // Update isAnonymizeOnly based on endpoint and check if this is a PII detection response
+    const isPIIDetection = data.endpoint === '/detect-pii-entities';
+    setIsAnonymizeOnly(isPIIDetection);
   };
 
   const handleError = (errorMessage: string) => {
@@ -165,83 +141,85 @@ const AnonymizePage = () => {
   };
 
   return (
-    <div className="p-6">
-      <div className="grid gap-6 grid-cols-2 min-h-[calc(100vh-3rem)]">
-        {/* Form Section */}
-        <div className="h-full">
-          <Card className="p-6 h-full">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-semibold">Text Anonymization</h2>
-              <Button 
-                variant="outline" 
-                size="sm"
-                onClick={handleReset}
-                className="flex items-center gap-2"
-              >
-                <RefreshCw className="h-4 w-4" />
-                Reset
-              </Button>
-            </div>
-            <AnonymizeForm 
-              ref={formRef}
-              onResponse={handleButtonClick}
-              onError={handleError}
-              onLoadingChange={setIsLoading}
-              onTextChange={setOriginalText}
-            />
-          </Card>
-        </div>
-
-        {/* Response Section - Always visible */}
-        <div className="h-full">
-          <Card className="p-6 h-full">
-            <h2 className="text-xl font-semibold mb-6">Response</h2>
-            
-            {/* Original Text - Always visible if there's text */}
-            {originalText && (
-              <ResponseSection
-                title="Original Text"
-                content={originalText}
-                isLoading={false}
+    <>
+      <div className="p-6">
+        <div className="grid gap-6 grid-cols-2 min-h-[calc(100vh-6rem)]">
+          {/* Form Section */}
+          <div className="h-full">
+            <Card className="p-6 h-full">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-xl font-semibold">Text Anonymization</h2>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  onClick={handleReset}
+                  className="flex items-center gap-2"
+                >
+                  <RefreshCw className="h-4 w-4" />
+                  Reset
+                </Button>
+              </div>
+              <AnonymizeForm 
+                ref={formRef}
+                onResponse={handleResponse}
+                onError={handleError}
+                onLoadingChange={setIsLoading}
+                onTextChange={setOriginalText}
               />
-            )}
+            </Card>
+          </div>
 
-            {/* Anonymized Text - Always visible when loading or has response */}
-            {(isLoading || response) && (
-              <ResponseSection
-                title="Anonymized Text"
-                content={response?.anonymized_text || ''}
-                isLoading={isLoading}
-              />
-            )}
-
-            {/* Additional sections - Only for full anonymization */}
-            {!isAnonymizeOnly && (isLoading || response) && (
-              <>
+          {/* Response Section */}
+          <div className="h-full">
+            <Card className="p-6 h-full">
+              <h2 className="text-xl font-semibold mb-6">Response</h2>
+              
+              {/* Original Text - Always show if present */}
+              {originalText && (
                 <ResponseSection
-                  title="Faked Text"
-                  content={response?.faked_text || ''}
+                  title="Original Text"
+                  content={originalText}
+                  isLoading={false}
+                />
+              )}
+
+              {/* Anonymized/Processed Text - Show for both operations */}
+              {(isLoading || response) && (
+                <ResponseSection
+                  title={isAnonymizeOnly ? "Detected Entities" : "Anonymized Text"}
+                  content={isAnonymizeOnly ? (response?.processed_text || '') : (response?.anonymized_text || '')}
                   isLoading={isLoading}
                 />
+              )}
 
-                <ResponseSection
-                  title="Faked Processed Text"
-                  content={response?.faked_processed_text || ''}
-                  isLoading={isLoading}
-                />
+              {/* Additional sections - Only for full anonymization */}
+              {!isAnonymizeOnly && response && (
+                <>
+                  <ResponseSection
+                    title="Faked Text"
+                    content={response?.faked_text || ''}
+                    isLoading={isLoading}
+                  />
 
-                <ResponseSection
-                  title="Processed Text"
-                  content={response?.processed_text || ''}
-                  isLoading={isLoading}
-                />
-              </>
-            )}
-          </Card>
+                  <ResponseSection
+                    title="Faked Processed Text"
+                    content={response?.faked_processed_text || ''}
+                    isLoading={isLoading}
+                  />
+
+                  <ResponseSection
+                    title="Processed Text"
+                    content={response?.processed_text || ''}
+                    isLoading={isLoading}
+                  />
+                </>
+              )}
+            </Card>
+          </div>
         </div>
+        <Toaster />
       </div>
-      <Toaster />
-    </div>
+    </>
   );
 };
 
