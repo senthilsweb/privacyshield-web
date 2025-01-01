@@ -1,27 +1,41 @@
 "use client";
 
 import React, { useRef } from "react";
-import { useState } from "react"
-import { AnonymizeForm } from "@/components/anonymize-form"
-import { useToast } from "@/hooks/use-toast"
-import { Toaster } from "@/components/ui/toaster"
-import { Card } from "@/components/ui/card"
-import { Skeleton } from "@/components/ui/skeleton"
-import { Button } from "@/components/ui/button"
-import { RefreshCw } from "lucide-react"
+import { useState } from "react";
+import { AnonymizeForm } from "@/components/anonymize-form";
+import { useToast } from "@/hooks/use-toast";
+import { Toaster } from "@/components/ui/toaster";
+import { Card } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/components/ui/button";
+import { RefreshCw } from "lucide-react";
 
 interface ProcessedResponse {
-  anonymized_text: string
-  faked_text?: string
-  faked_processed_text?: string
-  processed_text: string
-  endpoint?: string
+  anonymized_text: string;
+  faked_text?: string;
+  faked_processed_text?: string;
+  processed_text: string;
+  endpoint?: string;
 }
 
-// Default colors for entity highlighting
-const DEFAULT_ENTITY_STYLE = { bg: 'bg-gray-100', text: 'text-gray-800' };
+interface FormData {
+  endpoint: string;
+  processed_text: string;
+  anonymized_text: string;
+}
 
-const entityStyles = new Proxy({
+interface EntityStyle {
+  bg: string;
+  text: string;
+}
+
+interface AnonymizeFormRef {
+  reset: () => void;
+}
+
+const DEFAULT_ENTITY_STYLE: EntityStyle = { bg: 'bg-gray-100', text: 'text-gray-800' };
+
+const entityStyles = new Proxy<Record<string, EntityStyle>>({
   'PERSON': { bg: 'bg-blue-100', text: 'text-blue-800' },
   'PHONE_NUMBER': { bg: 'bg-green-100', text: 'text-green-800' },
   'EMAIL_ADDRESS': { bg: 'bg-purple-100', text: 'text-purple-800' },
@@ -29,7 +43,9 @@ const entityStyles = new Proxy({
   'DATE': { bg: 'bg-pink-100', text: 'text-pink-800' },
   'ORGANIZATION': { bg: 'bg-indigo-100', text: 'text-indigo-800' },
 }, {
-  get: (target, prop) => target[prop] || DEFAULT_ENTITY_STYLE
+  get: (target, prop: string): EntityStyle => {
+    return target[prop] || DEFAULT_ENTITY_STYLE;
+  }
 });
 
 const LoadingSection = () => (
@@ -40,17 +56,19 @@ const LoadingSection = () => (
   </div>
 );
 
+interface ResponseSectionProps {
+  title: string;
+  content: string;
+  isLoading: boolean;
+  show?: boolean;
+}
+
 const ResponseSection = ({ 
   title, 
   content,
   isLoading,
   show = true
-}: { 
-  title: string
-  content: string
-  isLoading: boolean
-  show?: boolean
-}) => {
+}: ResponseSectionProps) => {
   if (!show) return null;
 
   const highlightEntities = (text: string) => {
@@ -90,41 +108,39 @@ const ResponseSection = ({
 };
 
 const AnonymizePage = () => {
-  const [response, setResponse] = useState<ProcessedResponse | null>(null)
-  const [error, setError] = useState<string>("")
-  const [isLoading, setIsLoading] = useState(false)
-  const [originalText, setOriginalText] = useState<string>("")
-  const [isAnonymizeOnly, setIsAnonymizeOnly] = useState(false)
-  const formRef = useRef<any>(null)
-  const { toast } = useToast()
+  const [response, setResponse] = useState<ProcessedResponse | null>(null);
+  const [error, setError] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [originalText, setOriginalText] = useState<string>("");
+  const [isAnonymizeOnly, setIsAnonymizeOnly] = useState(false);
+  const formRef = useRef<AnonymizeFormRef>(null);
+  const { toast } = useToast();
 
-const handleButtonClick = async (data: any) => {
-  // Immediately set loading and clear previous response
-  setIsLoading(true);
-  setResponse(null);
-  setError("");
-  
-  const isAnonymizeOnlyOp = data.endpoint === '/detect-pii-entities';
-  setIsAnonymizeOnly(isAnonymizeOnlyOp);
-  
-  try {
-    await new Promise(resolve => setTimeout(resolve, 3000)); // 8 second delay for testing
+  const handleButtonClick = async (data: FormData) => {
+    setIsLoading(true);
+    setResponse(null);
+    setError("");
     
-    handleResponse({
-      ...data,
-      anonymized_text: isAnonymizeOnlyOp ? data.processed_text : data.anonymized_text,
-      processed_text: isAnonymizeOnlyOp ? '' : data.processed_text
-    });
-  } catch (err) {
-    handleError(err instanceof Error ? err.message : 'An error occurred');
-  }
-};
-
+    const isAnonymizeOnlyOp = data.endpoint === '/detect-pii-entities';
+    setIsAnonymizeOnly(isAnonymizeOnlyOp);
+    
+    try {
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      
+      handleResponse({
+        ...data,
+        anonymized_text: isAnonymizeOnlyOp ? data.processed_text : data.anonymized_text,
+        processed_text: isAnonymizeOnlyOp ? '' : data.processed_text
+      });
+    } catch (err) {
+      handleError(err instanceof Error ? err.message : 'An error occurred');
+    }
+  };
 
   const handleResponse = (data: ProcessedResponse) => {
     setResponse(data);
     setIsLoading(false);
-  }
+  };
 
   const handleError = (errorMessage: string) => {
     setError(errorMessage);
@@ -137,7 +153,7 @@ const handleButtonClick = async (data: any) => {
         duration: 8000,
       });
     }
-  }
+  };
 
   const handleReset = () => {
     setResponse(null);
@@ -226,7 +242,7 @@ const handleButtonClick = async (data: any) => {
       </div>
       <Toaster />
     </div>
-  )
-}
+  );
+};
 
-export default AnonymizePage
+export default AnonymizePage;
