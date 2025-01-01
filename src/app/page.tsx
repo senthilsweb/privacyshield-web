@@ -113,7 +113,6 @@ const AnonymizePage = () => {
   const handleResponse = (data: ProcessedResponse) => {
     setResponse(data);
     setIsLoading(false);
-    // Update isAnonymizeOnly based on endpoint and check if this is a PII detection response
     const isPIIDetection = data.endpoint === '/detect-pii-entities';
     setIsAnonymizeOnly(isPIIDetection);
   };
@@ -174,7 +173,6 @@ const AnonymizePage = () => {
             <Card className="p-6 h-full">
               <h2 className="text-xl font-semibold mb-6">Response</h2>
               
-              {/* Original Text - Always show if present */}
               {originalText && (
                 <ResponseSection
                   title="Original Text"
@@ -183,7 +181,6 @@ const AnonymizePage = () => {
                 />
               )}
 
-              {/* Anonymized/Processed Text - Show for both operations */}
               {(isLoading || response) && (
                 <ResponseSection
                   title={isAnonymizeOnly ? "Detected Entities" : "Anonymized Text"}
@@ -192,7 +189,6 @@ const AnonymizePage = () => {
                 />
               )}
 
-              {/* Additional sections - Only for full anonymization */}
               {!isAnonymizeOnly && response && (
                 <>
                   <ResponseSection

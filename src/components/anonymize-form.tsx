@@ -14,6 +14,25 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { AlertCircle, Loader2 } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 
+interface ProcessedResponse {
+  anonymized_text: string;
+  faked_text?: string;
+  faked_processed_text?: string;
+  processed_text: string;
+  endpoint?: string;
+}
+
+export interface AnonymizeFormRef {
+  reset: () => void;
+}
+
+export interface AnonymizeFormProps {
+  onResponse: (data: ProcessedResponse) => void;
+  onError: (error: string) => void;
+  onLoadingChange: (isLoading: boolean) => void;
+  onTextChange: (text: string) => void;
+}
+
 const prompts = [
   {
     id: "1",
@@ -47,7 +66,10 @@ If you would find it, please call at 313-666-7440 or write an email here: real.s
   model: "gpt-3.5-turbo",
 };
 
-export const AnonymizeForm = forwardRef(({ onResponse, onError, onLoadingChange, onTextChange }, ref) => {
+export const AnonymizeForm = forwardRef<AnonymizeFormRef, AnonymizeFormProps>((
+  { onResponse, onError, onLoadingChange, onTextChange }, 
+  ref
+) => {
   const [formData, setFormData] = useState(defaultFormData);
   const [isLoading, setIsLoading] = useState(false);
   const [promptError, setPromptError] = useState("");
@@ -68,7 +90,7 @@ export const AnonymizeForm = forwardRef(({ onResponse, onError, onLoadingChange,
     },
   }));
 
-  const validatePrompt = (prompt) => {
+  const validatePrompt = (prompt: string) => {
     if (!prompt.includes("{anonymized_text}")) {
       setPromptError("Prompt must include {anonymized_text}");
       return `${prompt}\n\n{anonymized_text}`;
@@ -77,7 +99,7 @@ export const AnonymizeForm = forwardRef(({ onResponse, onError, onLoadingChange,
     return prompt;
   };
 
-  const handlePromptSelect = (value) => {
+  const handlePromptSelect = (value: string) => {
     setSelectedPromptId(value);
     const selectedPrompt = prompts.find((p) => p.id === value);
     if (selectedPrompt) {
@@ -89,7 +111,7 @@ export const AnonymizeForm = forwardRef(({ onResponse, onError, onLoadingChange,
     }
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     if (name === "prompt_template") {
       const validatedTemplate = validatePrompt(value);
@@ -105,7 +127,7 @@ export const AnonymizeForm = forwardRef(({ onResponse, onError, onLoadingChange,
     }
   };
 
-  const handleModelChange = (value) => {
+  const handleModelChange = (value: string) => {
     setFormData((prev) => ({
       ...prev,
       model: value,
