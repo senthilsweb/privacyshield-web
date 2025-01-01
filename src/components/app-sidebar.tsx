@@ -38,7 +38,7 @@ const data = {
     {
       name: "Privacy Shield",
       logo: Shield,
-      plan: "Data Ananymizer",
+      plan: "Data Anonymizer",
     },
     {
       name: "Acme Corp.",
@@ -59,7 +59,7 @@ const data = {
       isActive: true,
       items: [
         {
-          title: "Ananymizer",
+          title: "Anonymizer",
           url: "/",
         },
         {
