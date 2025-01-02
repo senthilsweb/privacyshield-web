@@ -27,12 +27,16 @@ body {
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+
+    /* Chart Colors */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+
+    /* Sidebar Colors */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -41,7 +45,26 @@ body {
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Theme Colors */
+    --red-primary: 0 72.2% 50.6%;
+    --red-foreground: 0 85.7% 97.3%;
+    --rose-primary: 346.8 77.2% 49.8%;
+    --rose-foreground: 355.7 100% 97.3%;
+    --orange-primary: 24.6 95% 53.1%;
+    --orange-foreground: 60 9.1% 97.8%;
+    --green-primary: 142.1 76.2% 36.3%;
+    --green-foreground: 355.7 100% 97.3%;
+    --blue-primary: 221.2 83.2% 53.3%;
+    --blue-foreground: 210 40% 98%;
+    --yellow-primary: 45.4 93.4% 47.5%;
+    --yellow-foreground: 60 9.1% 97.8%;
+    --violet-primary: 262.1 83.3% 57.8%;
+    --violet-foreground: 210 40% 98%;
+    --zinc-primary: 240 5.9% 10%;
+    --zinc-foreground: 0 0% 98%;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -62,11 +85,15 @@ body {
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
+
+    /* Chart Colors */
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+
+    /* Sidebar Colors */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -75,6 +102,46 @@ body {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  [data-theme="red"] {
+    --primary: var(--red-primary);
+    --primary-foreground: var(--red-foreground);
+  }
+
+  [data-theme="rose"] {
+    --primary: var(--rose-primary);
+    --primary-foreground: var(--rose-foreground);
+  }
+
+  [data-theme="orange"] {
+    --primary: var(--orange-primary);
+    --primary-foreground: var(--orange-foreground);
+  }
+
+  [data-theme="green"] {
+    --primary: var(--green-primary);
+    --primary-foreground: var(--green-foreground);
+  }
+
+  [data-theme="blue"] {
+    --primary: var(--blue-primary);
+    --primary-foreground: var(--blue-foreground);
+  }
+
+  [data-theme="yellow"] {
+    --primary: var(--yellow-primary);
+    --primary-foreground: var(--yellow-foreground);
+  }
+
+  [data-theme="violet"] {
+    --primary: var(--violet-primary);
+    --primary-foreground: var(--violet-foreground);
+  }
+
+  [data-theme="zinc"] {
+    --primary: var(--zinc-primary);
+    --primary-foreground: var(--zinc-foreground);
   }
 }
 

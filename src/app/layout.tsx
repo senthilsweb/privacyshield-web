@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import {
+  SidebarProvider,
+  SidebarTrigger,
+  SidebarInset,
+} from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/mode-toggle";
 import MainNav from "@/components/main-nav";
+import { Separator } from "@/components/ui/separator";
+import { ColorTheme } from "@/components/color-theme";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,7 +25,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Privacy Shield - Data Anonymizer",
-  description: "Anonymize and transform your text with advanced AI capabilities",
+  description:
+    "Anonymize and transform your text with advanced AI capabilities",
 };
 
 export default function RootLayout({
@@ -41,18 +48,20 @@ export default function RootLayout({
           <SidebarProvider>
             <div className="flex min-h-screen">
               <AppSidebar />
-              <div className="flex-1 flex flex-col">
-                <div className="flex items-center h-16 border-b px-6">
-                  <SidebarTrigger className="mr-4" />
-                  <MainNav />
-                  <div className="ml-4">
-                    <ModeToggle />
+              <SidebarInset>
+                <div className="flex-1 flex flex-col">
+                  <div className="flex items-center h-16 border-b px-4">
+                    <SidebarTrigger className="mr-4" />
+                    <Separator orientation="vertical" className="mr-2 h-4" />
+                    <MainNav />
+                    <div className="space-x-2">
+                      <ColorTheme />
+                      <ModeToggle />
+                    </div>
                   </div>
+                  <main className="flex flex-1">{children}</main>
                 </div>
-                <main className="flex-1 flex">
-                  {children}
-                </main>
-              </div>
+              </SidebarInset>
             </div>
           </SidebarProvider>
         </ThemeProvider>

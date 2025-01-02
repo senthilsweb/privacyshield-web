@@ -29,7 +29,7 @@ export interface AnonymizeFormRef {
 export interface AnonymizeFormProps {
   onResponse: (data: ProcessedResponse) => void;
   onError: (error: string) => void;
-  onLoadingChange: (isLoading: boolean) => void;
+  onLoadingChange: (data: any) => void;
   onTextChange: (text: string) => void;
 }
 
@@ -140,19 +140,21 @@ export const AnonymizeForm = forwardRef<AnonymizeFormRef, AnonymizeFormProps>((
       return;
     }
 
+   
+
     const selectedActionType = actionTypes.find(action => action.id === selectedAction);
     if (!selectedActionType) {
       onError("Invalid action selected");
       return;
     }
 
-    // Handle the "Anonymize" action which is not implemented
     if (selectedAction === 'anonymize') {
       onError("This feature is not implemented yet. Please try other options.");
       return;
     }
 
-    onLoadingChange(true);
+    setIsLoading(true);
+    onLoadingChange({ endpoint: selectedActionType.endpoint });
     onError("");
 
     const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://api-privacyshield.nathansweb.com";
@@ -173,11 +175,13 @@ export const AnonymizeForm = forwardRef<AnonymizeFormRef, AnonymizeFormProps>((
       onResponse({ ...data, endpoint: selectedActionType.endpoint });
     } catch (err) {
       onError(err instanceof Error ? err.message : "An error occurred");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 min-h-[600px]">
       <div className="space-y-2">
         <Label htmlFor="prompt-select">Prompt Template</Label>
         <Select onValueChange={handlePromptSelect} value={selectedPromptId}>

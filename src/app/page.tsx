@@ -92,7 +92,7 @@ const ResponseSection = ({
         {isLoading ? (
           <LoadingSection />
         ) : (
-          <div className="whitespace-pre-wrap flex flex-wrap items-center">
+          <div className="whitespace-pre-wrap flex flex-wrap items-center text-black dark:text-black">
             {highlightEntities(content)}
           </div>
         )}
@@ -110,11 +110,23 @@ const AnonymizePage = () => {
   const formRef = useRef<AnonymizeFormRef>(null);
   const { toast } = useToast();
 
+
+  const handleButtonClick = async (data: any) => {
+    // Immediately set loading and clear previous response
+    setIsLoading(true);
+
+    setResponse(null);
+    setError("");
+
+    const isAnonymizeOnlyOp = data.endpoint === '/detect-pii-entities';
+    setIsAnonymizeOnly(isAnonymizeOnlyOp);
+  };
+
   const handleResponse = (data: ProcessedResponse) => {
     setResponse(data);
-    setIsLoading(false);
     const isPIIDetection = data.endpoint === '/detect-pii-entities';
     setIsAnonymizeOnly(isPIIDetection);
+    setIsLoading(false);
   };
 
   const handleError = (errorMessage: string) => {
@@ -141,11 +153,12 @@ const AnonymizePage = () => {
 
   return (
     <>
-      <div className="p-6">
-        <div className="grid gap-6 grid-cols-2 min-h-[calc(100vh-6rem)]">
+     
+     <div className="flex flex-1 p-6">
+  <div className="grid grid-cols-2 gap-6 flex-1">
           {/* Form Section */}
           <div className="h-full">
-            <Card className="p-6 h-full">
+            <Card className="p-6 h-full flex-1">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-semibold">Text Anonymization</h2>
                 <Button 
@@ -162,7 +175,7 @@ const AnonymizePage = () => {
                 ref={formRef}
                 onResponse={handleResponse}
                 onError={handleError}
-                onLoadingChange={setIsLoading}
+                onLoadingChange={handleButtonClick}
                 onTextChange={setOriginalText}
               />
             </Card>
@@ -170,7 +183,7 @@ const AnonymizePage = () => {
 
           {/* Response Section */}
           <div className="h-full">
-            <Card className="p-6 h-full">
+            <Card className="p-6 h-full flex-1">
               <h2 className="text-xl font-semibold mb-6">Response</h2>
               
               {originalText && (
