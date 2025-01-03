@@ -5,16 +5,11 @@ import fs from 'fs'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import MaxWidthWrapper from '@/components/max-width-wrapper'
+import { type BlogPost, getTagColorClass } from "@/types/blog";
 
 const CONTENT_PATH = path.join(process.cwd(), 'src/content')
 
-interface BlogPost {
-  slug: string
-  title: string
-  description: string
-  coverImage: string
-  date: string
-}
+
 
 async function getBlogPosts(): Promise<BlogPost[]> {
   try {
