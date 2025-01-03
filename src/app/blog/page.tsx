@@ -18,13 +18,20 @@ async function getBlogPosts(): Promise<BlogPost[]> {
       .filter(file => file.endsWith('.md'))
       .map(file => {
         const content = fs.readFileSync(path.join(CONTENT_PATH, file), 'utf-8')
-        const { data } = matter(content)
+        const { data, content: fileContent } = matter(content)
         return {
           slug: file.replace('.md', ''),
           title: data.title,
           description: data.description,
           coverImage: data.coverImage || '/images/placeholder-cover.jpg',
-          date: data.date || 'No date'
+          date: data.date || 'No date',
+          content: fileContent,
+          htmlContent: '', // You might want to add markdown-to-html conversion here
+          author: data.author || 'Anonymous',
+          tags: (data.tags || []).map((tag: string) => ({
+            text: tag,
+            colorClass: getTagColorClass(tag)
+          }))
         }
       })
     return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

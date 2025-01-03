@@ -49,12 +49,14 @@ async function getBlogPost(slug: string): Promise<BlogPost | null> {
     }));
 
     return {
-      content, // Original markdown for ToC
-      htmlContent, // Processed HTML for display
+      slug,
+      content,
+      htmlContent,
       title: data.title || "Untitled",
       description: data.description || "",
       author: data.author || "Anonymous",
       date: data.date || new Date().toISOString(),
+      coverImage: data.coverImage || '/images/placeholder-cover.jpg', // Add this line
       tags,
     };
   } catch (error) {
@@ -70,10 +72,10 @@ interface PageProps {
 }
 
 
-
 export default async function BlogPostPage({
   params: paramsPromise,
 }: PageProps) {
+  // Await the params
   const params = await paramsPromise;
   const post = await getBlogPost(params.slug);
 

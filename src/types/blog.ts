@@ -1,17 +1,19 @@
 // src/types/blog.ts
 
 interface BlogPost {
-    content: string
-    htmlContent: string
-    title: string
-    description: string
-    author: string
-    date: string
-    tags: Array<{
-      text: string
-      colorClass: string
-    }>
-  }
+  slug: string // Add this field
+  content: string
+  htmlContent: string
+  coverImage: string
+  title: string
+  description: string
+  author: string
+  date: string
+  tags: Array<{
+    text: string
+    colorClass: string
+  }>
+}
   
   // Helper function to get tag color classes
   const colors = [
