@@ -63,8 +63,33 @@ body {
     --violet-foreground: 210 40% 98%;
     --zinc-primary: 240 5.9% 10%;
     --zinc-foreground: 0 0% 98%;
-  }
+    --emerald-primary: 167 94% 52%;
+    --emerald-foreground: 0 0% 100%;
+    --indigo-primary: 231 48% 48%;
+    --indigo-foreground: 0 0% 100%;
 
+    --teal-primary: 172 66% 50%;
+    --teal-foreground: 0 0% 100%;
+
+    --cyan-primary: 190 95% 39%;
+    --cyan-foreground: 0 0% 100%;
+
+    --fuchsia-primary: 310 98% 52%;
+    --fuchsia-foreground: 0 0% 100%;
+
+    --lime-primary: 85 85% 45%;
+    --lime-foreground: 0 0% 100%;
+
+    --amber-primary: 45 93% 47%;
+    --amber-foreground: 0 0% 100%;
+
+    --pink-primary: 330 81% 60%;
+    --pink-foreground: 0 0% 100%;
+
+    --sky-primary: 199 89% 48%;
+    --sky-foreground: 0 0% 100%;
+  }
+}
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -143,7 +168,51 @@ body {
     --primary: var(--zinc-primary);
     --primary-foreground: var(--zinc-foreground);
   }
-}
+
+  [data-theme="emerald"] {
+    --primary: var(--emerald-primary);
+    --primary-foreground: var(--emerald-foreground);
+  }
+  
+  [data-theme="indigo"] {
+    --primary: var(--indigo-primary);
+    --primary-foreground: var(--indigo-foreground);
+  }
+
+  [data-theme="teal"] {
+    --primary: var(--teal-primary);
+    --primary-foreground: var(--teal-foreground);
+  }
+
+  [data-theme="cyan"] {
+    --primary: var(--cyan-primary);
+    --primary-foreground: var(--cyan-foreground);
+  }
+
+  [data-theme="fuchsia"] {
+    --primary: var(--fuchsia-primary);
+    --primary-foreground: var(--fuchsia-foreground);
+  }
+
+  [data-theme="lime"] {
+    --primary: var(--lime-primary);
+    --primary-foreground: var(--lime-foreground);
+  }
+
+  [data-theme="amber"] {
+    --primary: var(--amber-primary);
+    --primary-foreground: var(--amber-foreground);
+  }
+
+  [data-theme="pink"] {
+    --primary: var(--pink-primary);
+    --primary-foreground: var(--pink-foreground);
+  }
+
+  [data-theme="sky"] {
+    --primary: var(--sky-primary);
+    --primary-foreground: var(--sky-foreground);
+  }
 
 @layer base {
   * {

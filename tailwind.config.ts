@@ -136,5 +136,14 @@ export default {
 			}
 		}
 	},
+	safelist: [
+		{
+		  pattern: /^bg-.*-500$/,
+		  variants: ['hover', 'dark'],
+		},
+		{
+		  pattern: /^ring-.*$/,
+		}
+	  ],
 	plugins: [require('@tailwindcss/typography'), require("tailwindcss-animate")],
 } satisfies Config;

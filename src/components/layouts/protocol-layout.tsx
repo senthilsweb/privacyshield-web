@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/mode-toggle";
-import MainNav from "@/components/main-nav";
+import TopNav from "@/components/top-nav";
 import { ColorTheme } from "@/components/color-theme";
 import BrandLogoProtocol from "@/components/brand-logo-protocol";
+import PageFooter from "@/components/page-footer";
+import { Button } from "@/components/ui/button";
 
 interface ProtocolLayoutProps {
   children: React.ReactNode;
@@ -26,8 +28,8 @@ export const ProtocolLayout = ({ children }: ProtocolLayoutProps) => {
             </div>
 
             <div className="flex flex-1 items-center justify-between space-x-2">
-              <MainNav />
-              
+              <TopNav />
+
               <div className="flex items-center space-x-4">
                 <div className="hidden md:block">
                   <div className="relative">
@@ -39,6 +41,8 @@ export const ProtocolLayout = ({ children }: ProtocolLayoutProps) => {
                   </div>
                 </div>
                 <nav className="flex items-center space-x-2">
+                  <Button variant="outline">Sign in</Button>
+                  <Button>Get started today</Button>
                   <ColorTheme />
                   <ModeToggle />
                 </nav>
@@ -47,9 +51,8 @@ export const ProtocolLayout = ({ children }: ProtocolLayoutProps) => {
           </div>
         </header>
 
-        <main className="flex-1">
-          {children}
-        </main>
+        <main className="flex-1">{children}</main>
+        <PageFooter/>
       </div>
     </ThemeProvider>
   );

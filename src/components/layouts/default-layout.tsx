@@ -9,7 +9,7 @@ import {
 import { AppSidebar } from "@/components/app-sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/mode-toggle";
-import MainNav from "@/components/main-nav";
+import MainNav from "@/components/top-nav";
 import { Separator } from "@/components/ui/separator";
 import { ColorTheme } from "@/components/color-theme";
 

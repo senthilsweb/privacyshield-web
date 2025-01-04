@@ -9,63 +9,82 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
 
 const colors = [
-  { name: "Zinc", bgClass: "bg-zinc-500" },
-  { name: "Red", bgClass: "bg-red-500" },
-  { name: "Rose", bgClass: "bg-rose-500" },
-  { name: "Orange", bgClass: "bg-orange-500" },
-  { name: "Green", bgClass: "bg-green-500" },
-  { name: "Blue", bgClass: "bg-blue-500" },
-  { name: "Yellow", bgClass: "bg-yellow-500" },
-  { name: "Violet", bgClass: "bg-violet-500" },
+ // Row 1
+ { name: "Red", value: "red", class: "bg-red-500" },
+ { name: "Orange", value: "orange", class: "bg-orange-500" },
+ { name: "Amber", value: "amber", class: "bg-amber-500" },
+ { name: "Yellow", value: "yellow", class: "bg-yellow-500" },
+ { name: "Lime", value: "lime", class: "bg-lime-500" },
+ 
+ // Row 2
+ { name: "Green", value: "green", class: "bg-green-500" },
+ { name: "Emerald", value: "emerald", class: "bg-emerald-500" },
+ { name: "Teal", value: "teal", class: "bg-teal-500" },
+ { name: "Cyan", value: "cyan", class: "bg-cyan-500" },
+ { name: "Sky", value: "sky", class: "bg-sky-500" },
+
+ // Row 3
+ { name: "Blue", value: "blue", class: "bg-blue-500" },
+ { name: "Indigo", value: "indigo", class: "bg-indigo-500" },
+ { name: "Violet", value: "violet", class: "bg-violet-500" },
+ { name: "Purple", value: "purple", class: "bg-purple-500" },
+ { name: "Fuchsia", value: "fuchsia", class: "bg-fuchsia-500" },
+
+ // Row 4
+ { name: "Pink", value: "pink", class: "bg-pink-500" },
+ { name: "Rose", value: "rose", class: "bg-rose-500" },
+ 
+ // Row 5 (Monochrome)
+ { name: "Zinc", value: "zinc", class: "bg-zinc-500" },
 ];
 
 export function ColorTheme() {
-    
-    const { resolvedTheme, setTheme } = useTheme()
-    const [selectedColor, setSelectedColor] = React.useState('zinc')
-    const [mounted, setMounted] = React.useState(false)
+  const { resolvedTheme, setTheme } = useTheme();
+  const [selectedColor, setSelectedColor] = React.useState('zinc');
+  const [mounted, setMounted] = React.useState(false);
 
-    useEffect(() => {
-        const savedColor = localStorage.getItem('color-theme') || 'zinc'
-        setSelectedColor(savedColor)
-        document.documentElement.setAttribute('data-theme', savedColor)
-        setMounted(true)
-      }, [])
-    
-      const handleColorChange = (color: string) => {
-        const lowerColor = color.toLowerCase()
-        setSelectedColor(lowerColor)
-        document.documentElement.setAttribute('data-theme', lowerColor)
-        localStorage.setItem('color-theme', lowerColor)
-      }
-    
-      if (!mounted) return null
+  useEffect(() => {
+    const savedColor = localStorage.getItem('color-theme') || 'zinc';
+    setSelectedColor(savedColor);
+    document.documentElement.setAttribute('data-theme', savedColor);
+    setMounted(true);
+  }, []);
+
+  const handleColorChange = (color: string) => {
+    setSelectedColor(color);
+    document.documentElement.setAttribute('data-theme', color);
+    localStorage.setItem('color-theme', color);
+  };
+
+  if (!mounted) return null;
+
+  const selectedColorClass = colors.find(c => c.value === selectedColor)?.class || 'bg-zinc-500';
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon">
-          <div className={`h-4 w-4 rounded-full ${mounted ? `bg-${selectedColor}-500` : ''}`} />
+          <div className={cn("h-4 w-4 rounded-full", mounted ? selectedColorClass : '')} />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <div className="grid grid-cols-2 gap-2 p-2">
-          {colors.map((c) => (
+          {colors.map((color) => (
             <div
-              key={c.name}
-              className={`flex items-center gap-2 p-2 rounded-lg cursor-pointer ${
-                selectedColor === c.name.toLowerCase()
-                  ? "bg-gray-100"
-                  : "hover:bg-gray-100"
-              }`}
-              onClick={() => handleColorChange(c.name.toLowerCase())}
+              key={color.name}
+              className={cn(
+                "flex items-center gap-2 p-2 rounded-lg cursor-pointer",
+                selectedColor === color.value
+                  ? "bg-gray-100 dark:bg-gray-800"
+                  : "hover:bg-gray-100 dark:hover:bg-gray-800"
+              )}
+              onClick={() => handleColorChange(color.value)}
             >
-              <div
-                className={`h-4 w-4 rounded-full bg-${c.name.toLowerCase()}-500`}
-              />
-              <span>{c.name}</span>
+              <div className={cn("h-4 w-4 rounded-full", color.class)} />
+              <span>{color.name}</span>
             </div>
           ))}
         </div>

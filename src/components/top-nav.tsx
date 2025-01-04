@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 
-const navigationData = {
+export const navigationData = {
   menuItems: [
     {
       trigger: "About Me",
@@ -90,7 +90,7 @@ const navigationData = {
   ],
 };
 
-const MainNav = () => {
+const TopNav = () => {
   const renderIcon = (iconName: keyof typeof Icons) => {
     const IconComponent = Icons[iconName];
     return IconComponent ? <IconComponent className="h-6 w-6" /> : null;
@@ -159,4 +159,4 @@ const MainNav = () => {
     );
   };
   
-  export default MainNav;
+  export default TopNav;
