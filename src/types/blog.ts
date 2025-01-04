@@ -1,20 +1,22 @@
 // src/types/blog.ts
 
-interface BlogPost {
-  slug: string // Add this field
+
+export interface BlogPost {
+  slug: string
   content: string
   htmlContent: string
-  coverImage: string
   title: string
   description: string
   author: string
   date: string
-  tags: Array<{
+  lastModified?: string
+  coverImage: string
+  readingTime: string
+  tags: {
     text: string
     colorClass: string
-  }>
+  }[]
 }
-  
   // Helper function to get tag color classes
   const colors = [
     "text-sky-700 bg-sky-50 ring-sky-600/20 dark:text-sky-300 dark:bg-sky-400/10 dark:ring-sky-400/20",
@@ -27,16 +29,15 @@ interface BlogPost {
     "text-rose-700 bg-rose-50 ring-rose-600/20 dark:text-rose-300 dark:bg-rose-400/10 dark:ring-rose-400/20"
   ];
   
-  function getTagColorClass(tag: string): string {
-    // Hash the tag string to get a consistent index
-    const hashCode = tag.split('').reduce((acc, char) => {
-      return char.charCodeAt(0) + ((acc << 5) - acc);
-    }, 0);
-    
-    // Use the hash to pick a color
-    const index = Math.abs(hashCode) % colors.length;
-    return colors[index];
+  export function getTagColorClass(tag: string): string {
+    // Add your tag color mapping logic here
+    const tagColors: Record<string, string> = {
+      typescript: "text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/30 ring-blue-600/20",
+      react: "text-cyan-700 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-900/30 ring-cyan-600/20",
+      nextjs: "text-black dark:text-white bg-gray-50 dark:bg-gray-900/30 ring-gray-600/20",
+      // Add more tag colors as needed
+    }
+  
+    return tagColors[tag.toLowerCase()] || "text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-900/30 ring-gray-600/20"
   }
   
-  export type { BlogPost }
-  export { getTagColorClass }

@@ -14,74 +14,79 @@ import Link from "next/link";
 const navigationData = {
   menuItems: [
     {
-      trigger: "Getting Started",
+      trigger: "About Me",
+      href: "https://www.senthilsweb.com/cms/senthilnathan-karuppaiah",
+    },
+    {
+     trigger: "Blog",
+      href: "/blog",
+    },
+    {
+      trigger: "Projects",
       content: {
         featured: {
           icon: "logo",
-          title: "Text Anonymization",
+          title: "Privacy Shield",
           description:
-            "Anonymize and transform your text with advanced AI capabilities",
-          href: "/",
+            "Anonymize and Transform text with advanced AI capabilities",
+          href: "/anonymizer",
         },
         items: [
           {
-            title: "Introduction",
-            href: "/docs",
-            description: "Getting started with text anonymization",
+            title: "TemplrJS",
+            href: "https://github.com/senthilsweb/templrjs",
+            description: "Craft stunning web and mobile applications effortlessly with TemplrJS, an open-source rapid development platform",
           },
           {
-            title: "Installation",
-            href: "/installation",
-            description: "How to setup and configure the application",
+            title: "DuckDB Data Proxy",
+            href: "/https://github.com/senthilsweb/duckdb-data-api",
+            description: "Data API and micro orm for DuckDB and MotherDuck",
           },
           {
-            title: "Usage Guide",
-            href: "/usage",
-            description: "Learn how to use the features effectively",
+            title: "DuckDB Studio",
+            href: "https://github.com/senthilsweb/duckdb-studio",
+            description: "A simple, yet powerful web utility designed to explore and interact with DuckDB databases",
           },
         ],
       },
     },
     {
-      trigger: "Features",
+     trigger: "Resources",
       content: {
         items: [
           {
-            title: "PII Detection",
+            title: "REST API Documentation",
             href: "#",
-            description:
-              "Identify and detect personally identifiable information in text",
+            description: "Comprehensive RESTful API documentation for all my projects, including endpoints, usage examples, and authentication guidelines."
           },
           {
-            title: "Text Transformation",
-            href: "#",
-            description: "Transform anonymized text into different formats",
-          },
-        ],
-      },
-    },
-    {
-      trigger: "Resources",
-      content: {
-        items: [
-          {
-            title: "PII Detection",
-            href: "#",
-            description:
-              "Identify and detect personally identifiable information in text",
+            title: "Professional Resume",
+            href: "https://www.senthilsweb.com/resume/senthilnathan",
+            description: "My detailed professional resume, highlighting skills, work experience, projects, and education."
           },
           {
-            title: "Text Transformation",
+            title: "Portfolio",
             href: "#",
-            description: "Transform anonymized text into different formats",
+            description: "A curated selection of my projects, case studies, and achievements."
           },
-        ],
-      },
-    },
-    {
-      trigger: "Documentation",
-      href: "#",
-    },
+          {
+            title: "Blog",
+            href: "/blog",
+            description: "Insights and articles on technology, data engineering, and project highlights."
+          },
+          {
+            title: "LinkedIn",
+            href: "https://www.linkedin.com/in/senthilsweb/",
+            description: "Connect with me on LinkedIn to view my professional network and updates."
+          },
+          {
+            title: "GitHub",
+            href: "https://github.com/senthilsweb",
+            description: "My open-source contributions and project repositories."
+          }
+        ]
+      }
+    }
   ],
 };
 

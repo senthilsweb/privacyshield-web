@@ -1,11 +1,17 @@
 ---
 title: Getting Started with DuckDB SQL IDE
-slug: "getting-started-duckdb-sql-ide"
-imageUrl: "/images/coding.jpeg"
-coverImage: "/images/coding.jpeg"
+slug: getting-started-with-duckdb-sql-ide
+pageTitle: Tickit Database SQL Queries 
 description: The "Tickit" database typically contains tables related to a fictional ticket-selling company, including data about events, venues, ticket sales, and customer information. It's designed to showcase various SQL operations and query scenarios.
 date: 2023-09-15T12:00:00.000Z
-tags: ["JDBC", "DuckDB", "SQL"]
+published: true
+industries: []
+coverImage: https://res.cloudinary.com/nathansweb/image/upload/v1693595703/senthilsweb.com/blog/senthilsweb-image-card_4_thm4gh.png
+ogImage: https://res.cloudinary.com/nathansweb/image/upload/v1693592651/senthilsweb.com/blog/goduck.png
+author: Senthilnathan Karuppaiah
+avatar: https://res.cloudinary.com/nathansweb/image/upload/v1626488903/profile/Senthil-profile-picture-01_al07i5.jpg
+type: Documentation
+tags: [DuckDB, SQL]
 ---
 
 ## Introduction
