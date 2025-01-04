@@ -12,7 +12,7 @@ avatar: "https://res.cloudinary.com/nathansweb/image/upload/v1626488903/profile/
 type: Blog
 tags: ['DataObservability','DataEngineering','dbt','DuckDB','DataLineage','Analytics','DataLake','BusinessMetadataManagement','Vue.js','Nuxt.js','Open Source','Web Development','Low Code Platform']
 ---
-![Flog](/i/blog/Flog_A_Powerful_Fake_Log_Generator_banner.PNG)
+![Flog](/i/blog/Flog_A_Powerful_Fake_Log_Generator_banner.png)
 
 
 Looking for a simple way to generate fake log data for testing or simulating real-world scenarios? Look no further than Flog by <a href="https://github.com/mingrammer/flog" class="dark:text-teal-400 relative transition hover:text-teal-500 dark:hover:text-teal-400">@mingrammer!</a>

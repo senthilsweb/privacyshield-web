@@ -13,7 +13,7 @@ type: Blog
 tags: ['DataObservability','DataEngineering','dbt','DuckDB','DataLineage','Analytics','DataLake','BusinessMetadataManagement','Vue.js','Nuxt.js','Open Source','Web Development','Low Code Platform']
 ---
 
-![Jira](/i/blog/JIRA_to_DuckDB_Bot_banner.PNG)
+![Jira](/i/blog/JIRA_to_DuckDB_Bot_banner.png)
 
 ## Use Case
 
@@ -42,7 +42,7 @@ Built as a bot using the Single Responsibility Principle (SRP), ensuring the pro
 
 ## Folder structure
 
-![Folder structure](/i/blog/JIRA_to_DuckDB_Bot_1.PNG)
+![Folder structure](/i/blog/JIRA_to_DuckDB_Bot_1.png)
 
 ## Prerequisites
 

@@ -14,7 +14,7 @@ tags: ['Vue.js','Nuxt.js','Open Source','Web Development','Low Code Platform']
 ---
 
 
-![PrivacyEngineering](/i/blog/privacy-engineering-with-LLMs.PNG)
+![PrivacyEngineering](/i/blog/privacy-engineering-with-LLMs.png)
 
 
 ## Introduction
@@ -51,7 +51,7 @@ Privacy Shield combines several modern technologies to deliver a seamless and se
 ::
 
 ## Schematic Flow
-![TechnicalDesign](/i/blog/privacy-engineering-with-LLMs_1.PNG)
+![TechnicalDesign](/i/blog/privacy-engineering-with-LLMs_1.png)
 
 
 ## Benefits of Privacy Shield
@@ -68,7 +68,7 @@ Privacy Shield combines several modern technologies to deliver a seamless and se
 ## Live Demo
 [https://privacyshield.vercel.app/](https://privacyshield.vercel.app/)
 
-![PrivacyShieldTool](/i/blog/privacy-engineering-with-LLMs_2.PNG)
+![PrivacyShieldTool](/i/blog/privacy-engineering-with-LLMs_2.png)
 
 Use these inputs to experiment with the Privacy Shield Tool and observe how Anonymization and Reverse Anonymization work in action.
 

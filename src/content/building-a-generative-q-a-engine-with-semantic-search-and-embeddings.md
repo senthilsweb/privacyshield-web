@@ -14,7 +14,7 @@ tags: ['Vue.js','Nuxt.js','Open Source','Web Development','Low Code Platform']
 ---
 
 
-![htmlpdf](/i/blog/building-a-generative-q&a.PNG)
+![htmlpdf](/i/blog/building-a-generative-q&a.png)
 
 ## Introduction
 In the age of AI-powered tools and intelligent systems, the ability to search, analyze, and generate insights from documents has become paramount. Semantic search and generative AI offer powerful capabilities to build engines that allow querying large sets of documents, answering questions naturally, and even recommending relevant content. This article is part one of a multi-series guide to building such a system.
@@ -35,19 +35,19 @@ This implementation extends **TemplrJS**, my open-source, full-stack rapid app d
 4. **Future Use Case: Semantic Impact Analysis for Test Case Management:** Extend this approach to perform impact analysis for large-scale engineering projects or products. By leveraging semantic content matching on well-written test cases, it is possible to identify affected test cases and create an impact lineage graph. This can further be enhanced using generative AI to automatically generate new test cases or refine existing ones based on the identified impact.
 
 ## Ingredients
-![htmlpdf](/i/blog/building-a-generative-q&a_1.PNG)
+![htmlpdf](/i/blog/building-a-generative-q&a_1.png)
 
 ## Technical Architecture and Design
 ### Text Embedding/Vectorization Workflow
-![htmlpdf](/i/blog/building-a-generative-q&a_2.PNG)
-![htmlpdf](/i/blog/building-a-generative-q&a_3.PNG)
+![htmlpdf](/i/blog/building-a-generative-q&a_2.png)
+![htmlpdf](/i/blog/building-a-generative-q&a_3.png)
 
 ### Retrieval and Query Response Workflow
-![htmlpdf](/i/blog/building-a-generative-q&a_4.PNG)
-![htmlpdf](/i/blog/building-a-generative-q&a_5.PNG)
+![htmlpdf](/i/blog/building-a-generative-q&a_4.png)
+![htmlpdf](/i/blog/building-a-generative-q&a_5.png)
 
 ### Entity-Relationship Diagram (ERD)
-![htmlpdf](/i/blog/building-a-generative-q&a_6.PNG)
+![htmlpdf](/i/blog/building-a-generative-q&a_6.png)
 
 ::list{type="success"}
 - The **Documents** table has a one-to-many relationship with the **DocumentSections** table.
@@ -56,10 +56,10 @@ This implementation extends **TemplrJS**, my open-source, full-stack rapid app d
 
 ### Data Dictionary
 #### Documents Table
-![htmlpdf](/i/blog/building-a-generative-q&a_7.PNG)
+![htmlpdf](/i/blog/building-a-generative-q&a_7.png)
 
 #### DocumentSections Table
-![htmlpdf](/i/blog/building-a-generative-q&a_8.PNG)
+![htmlpdf](/i/blog/building-a-generative-q&a_8.png)
 
 
 ### Key Features
@@ -82,7 +82,7 @@ JavaScript version:
 ### REST API: Embedding Generation
 **Endpoint:** POST /api/embeddings/generate
 
-![htmlpdf](/i/blog/building-a-generative-q&a_9.PNG)
+![htmlpdf](/i/blog/building-a-generative-q&a_9.png)
 
 ### Next Steps
 Stay tuned for **Part 2:** Semantic Search and Document Recommendations, where we’ll cover retrieval mechanisms and cosine similarity for document suggestions.

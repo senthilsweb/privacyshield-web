@@ -14,7 +14,7 @@ tags: ['Vue.js','Nuxt.js','Open Source','Web Development','Low Code Platform']
 ---
 
 
-![htmlpdf](/i/blog/lightweight-html-to-pdf.PNG)
+![htmlpdf](/i/blog/lightweight-html-to-pdf.png)
 
 This microservice is designed to address simple PDF export needs, making it ideal for generating blog articles, profile cards, and other lightweight use cases. It prioritizes efficiency and edge platform compatibility, avoiding the overhead of heavy PDF reporting tools. While it's a valuable addition to my open-source  [TemplrJS Nuxt Fullstack Framework](https://github.com/senthilsweb/templrjs.git), it is equally useful for standalone applications.
 
@@ -66,7 +66,7 @@ Generate PDF
 
 **Route:** /api/pdf
 
-![htmlpdf](/i/blog/Lightweight_1.PNG)
+![htmlpdf](/i/blog/Lightweight_1.png)
 
 
 ## Examples

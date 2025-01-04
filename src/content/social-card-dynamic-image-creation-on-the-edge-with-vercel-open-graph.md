@@ -13,7 +13,7 @@ type: Blog
 tags: ['DataObservability','DataEngineering','dbt','DuckDB','DataLineage','Analytics','DataLake','BusinessMetadataManagement','Vue.js','Nuxt.js','Open Source','Web Development','Low Code Platform']
 ---
 
-![Biker Gopher](/i/blog/Social-Card_Dynamic_Image_Creation_banner.PNG)
+![Biker Gopher](/i/blog/Social-Card_Dynamic_Image_Creation_banner.png)
 
 Social-card: A dynamic image generator for business, profile, and social cards using Vercel Open Graph, Next.js, and TailwindCSS. Easily customize and create visually appealing cards for any purpose! 
 
@@ -57,11 +57,11 @@ http://localhost:3000/profile-card?name=<name>&email=<email>&mobile=<mobile>&tit
 https://social-card-five.vercel.app/profile-card?name=Biker%20Gopher&email=biker.gopher@email.com&mobile=%2B1%20222-222-2222&title=Solutions%20Architect&profile_image_url=https://github.com/ashleymcnamara/gophers/blob/master/Biker_Gopher.png?raw=true&website=www.senthilsweb.com&bg_color=pink
 ```
 
-![img1](/i/blog/Social-Card_Dynamic_Image_Creation_1.PNG)
+![img1](/i/blog/Social-Card_Dynamic_Image_Creation_1.png)
 
-![img2](/i/blog/Social-Card_Dynamic_Image_Creation_2.PNG)
+![img2](/i/blog/Social-Card_Dynamic_Image_Creation_2.png)
 
-![img3](/i/blog/Social-Card_Dynamic_Image_Creation_3.PNG)
+![img3](/i/blog/Social-Card_Dynamic_Image_Creation_3.png)
 
 ## Source Code
 

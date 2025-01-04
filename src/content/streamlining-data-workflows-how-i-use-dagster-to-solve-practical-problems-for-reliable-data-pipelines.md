@@ -12,7 +12,7 @@ avatar: "https://res.cloudinary.com/nathansweb/image/upload/v1626488903/profile/
 type: Blog
 tags: ['DataObservability','DataEngineering','dbt','DuckDB','DataLineage','Analytics','DataLake','BusinessMetadataManagement','Vue.js','Nuxt.js','Open Source','Web Development','Low Code Platform']
 ---
-![Streamlining Data Workflows](/i/blog/Streamlining-Data-Workflows_banner.PNG)
+![Streamlining Data Workflows](/i/blog/Streamlining-Data-Workflows_banner.png)
 I'm sharing a collection of my work in data engineering that showcases practical applications of Dagster for managing and orchestrating data pipelines. Through these examples, you'll discover how <a href="https://dagster.io/" class="dark:text-teal-400 relative transition hover:text-teal-500 dark:hover:text-teal-400">Dagster</a> helps streamline and optimize various data processes.
 
 
@@ -31,13 +31,13 @@ Visit the GitHub repository <a href='https://github.com/senthilsweb/dagster-data
 
 ### Screenshots
 
-![The final result](/i/blog/Streamlining-Data-Workflows-1.PNG)
+![The final result](/i/blog/Streamlining-Data-Workflows-1.png)
 <div class="relative flex items-center">The final result</div>
 
-![Pipeline run history](/i/blog/Streamlining-Data-Workflows-2.PNG)
+![Pipeline run history](/i/blog/Streamlining-Data-Workflows-2.png)
 <div class="relative flex items-center">Pipeline run history</div>
 
-![Lineage vertical](/i/blog/Streamlining-Data-Workflows-3.PNG)
+![Lineage vertical](/i/blog/Streamlining-Data-Workflows-3.png)
 <div class="relative flex items-center">Lineage vertical</div>
 
 **Disclaimer:** The PDF documents and ebooks used in these demonstrations are intended solely for demonstration purposes. Full access and further usage of these materials are subject to the applicable copyright laws.
