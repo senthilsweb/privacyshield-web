@@ -44,7 +44,7 @@ export const navigationData = {
           },
           {
             title: "DuckDB Studio",
-            href: "https://github.com/senthilsweb/duckdb-studio",
+            href: "/duckdb-studio",
             description: "A simple, yet powerful web utility designed to explore and interact with DuckDB databases",
           },
         ],
