@@ -47,6 +47,11 @@ export const navigationData = {
             href: "/duckdb-studio",
             description: "A simple, yet powerful web utility designed to explore and interact with DuckDB databases",
           },
+          {
+            title: "Data Pipeline Visualizer",
+            href: "/data-pipeline-visulalizer",
+            description: "Create and visualize complex data pipelines with an intuitive YAML-based interface",
+          },
         ],
       },
     },

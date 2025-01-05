@@ -9,7 +9,14 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ['res.cloudinary.com','images.unsplash.com','plus.unsplash.com'], // Add Cloudinary domain to allowed list
+    domains: ['res.cloudinary.com','images.unsplash.com','plus.unsplash.com'], 
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'api.iconify.design',
+        pathname: '**',
+      },
+    ],
   },
 };
 
