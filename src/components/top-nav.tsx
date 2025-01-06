@@ -15,7 +15,7 @@ export const navigationData = {
   menuItems: [
     {
       trigger: "About Me",
-      href: "https://www.senthilsweb.com/cms/senthilnathan-karuppaiah",
+      href: "/about/senthilnathan-karuppaiah",
     },
     {
      trigger: "Blog",
@@ -66,7 +66,7 @@ export const navigationData = {
           },
           {
             title: "Professional Resume",
-            href: "https://www.senthilsweb.com/resume/senthilnathan",
+            href: "/resume/senthilnathan",
             description: "My detailed professional resume, highlighting skills, work experience, projects, and education."
           },
           {

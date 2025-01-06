@@ -1,0 +1,272 @@
+{
+    "basics": {
+        "name": "Senthilnathan Karuppaiah",
+        "email": "nathansweb@icloud.com",
+        "website": "https://www.senthilsweb.com",
+        "picture": "https://res.cloudinary.com/nathansweb/image/upload/v1626488903/profile/Senthil-profile-picture-01_al07i5.jpg",
+        "phone": "",
+        "summary": "I am a seasoned Software Architect with extensive experience in product engineering, innovation, business analysis, and solution design. My expertise encompasses a broad range of technologies such as Data Engineering, Business Intelligence/Analytics, Data Lakehouse, Web Development, Mobility Solutions, and IoT. Driven by a passion for developing innovative solutions, I am dedicated to delivering success across these key domains.",
+        "location": {
+            "address": "",
+            "postalCode": "",
+            "city": "",
+            "state": "NJ",
+            "countryCode": "+1",
+            "full_address": ""
+        },
+        "profiles": [
+            {
+                "network": "GitHub",
+                "icon": "fa:github",
+                "username": "senthilsweb",
+                "url": "https://github.com/senthilsweb"
+            },
+            {
+                "network": "Linkedin",
+                "icon": "fa:linkedin-square",
+                "username": "cdmsenthil",
+                "url": "https://www.linkedin.com/in/senthilsweb/"
+            },
+            {
+                "network": "Personal Website",
+                "icon": "mdi:web",
+                "username": "senthilsweb",
+                "url": "https://www.senthilsweb.com"
+            }
+        ]
+    },
+    "professionalSynopsis": [
+        "Over the past decade, I have specialized in Data Platform product development, focusing on key areas such as Data Observability, Federated Data Governance, Data Discovery, Data Lineage, and Business Metadata Management.",
+        "My role encompasses the architectural design and strategic implementation of advanced data governance frameworks that ensure data consistency and accessibility while adhering to stringent regulatory requirements. This expertise extends to managing federated data environments that facilitate comprehensive data observability and discovery.",
+        "I am adept at orchestrating Data Lineage and Business Metadata Management processes to streamline data workflows and optimize data utilization for actionable insights, thereby supporting robust decision-making across organizations.",
+        "Leveraging a combination of modern technologies and methodologies, I have led initiatives to enhance data reliability and usability, aligning data strategies with business objectives to drive growth and innovation. My experience spans diverse sectors, including Healthcare IT, Transportation & Logistics, Agriculture, Banking & Insurance, Pharma, Energy, and Telecommunications.",
+        "I am technically proficient in Golang, Python, NodeJS, C#, JAVA/J2EE, and various Front-End frameworks.",
+        "My hands-on experience extends to IaaS & PaaS with the AWS stack (including Elastic Beanstalk, SES, S3, Lambda, EventBridge, Step, and Route53) and containerization technologies like Docker and Kubernetes. I'm well-versed in Continuous Integration and Delivery, ranging from legacy systems to modern GitOps practices.",
+        "I follow a delivery-focused approach, combining architectural, development, and deployment strategies tailored to specific project needs, all guided by agile practices and process implementation.",
+        "I've been actively involved in Program Management for multiple key accounts across various technologies and platforms, successfully managing large global teams of over 50 members worldwide.",
+        "My commitment extends to maintaining open source projects on GitHub (https://github.com/senthilsweb), and I possess excellent communication, interpersonal, research/analysis, organizational, and leadership skills. I'm a quick learner, adaptable, and process-oriented, with a strong customer-centric approach."
+    ],
+    "coreCompetencies": [
+        "Architecture & Solutioning",
+        "Customer Relationship",
+        "Product Engineering",
+        "Technical Consultancy",
+        "Service Delivery Management",
+        "Presales & Proposals",
+        "Programming",
+        "Stakeholder Management",
+        "Software Estimation"
+    ],
+    "technicalCompetencies": [
+        {
+            "name": "Bash",
+            "icon": "logos:bash-icon"
+        },
+        {
+            "name": "Python",
+            "icon": "logos:python"
+        },
+        {
+            "name": "JavaScript",
+            "icon": "logos:javascript"
+        },
+        {
+            "name": "Golang",
+            "icon": "logos:go"
+        },
+        {
+            "name": "JAVA",
+            "icon": "logos:java"
+        },
+        {
+            "name": "PostgreSQL",
+            "icon": "logos:postgresql"
+        },
+        {
+            "name": "DuckDB",
+            "icon": "simple-icons:duckdb"
+        },
+        {
+            "name": "Snowflake",
+            "icon": "logos:snowflake-icon"
+        },
+        {
+            "name": "Supabase",
+            "icon": "devicon:supabase"
+        },
+        {
+            "name": "MongoDB",
+            "icon": "devicon:mongodb"
+        },
+        {
+            "name": "DBT",
+            "icon": "logos:dbt-icon"
+        },
+        {
+            "name": "Grafana",
+            "icon": "logos:grafana"
+        },
+        {
+            "name": "MinIO",
+            "icon": "simple-icons:minio"
+        },
+        {
+            "name": "Vue.JS",
+            "icon": "logos:vue"
+        },
+        {
+            "name": "NuxtJS",
+            "icon": "logos:nuxt-icon"
+        },
+        {
+            "name": "TailwindCss",
+            "icon": "logos:tailwindcss-icon"
+        },
+        {
+            "name": "AWS",
+            "icon": "logos:aws"
+        },
+        {
+            "name": "Docker",
+            "icon": "logos:docker-icon"
+        },
+        {
+            "name": "Traefik",
+            "icon": "devicon:traefikproxy"
+        },
+        {
+            "name": "Vercel",
+            "icon": "devicon:vercel"
+        },
+        {
+            "name": "Netlify",
+            "icon": "skill-icons:netlify-light"
+        },
+        {
+            "name": "Redis",
+            "icon": "logos:redis"
+        }
+    ],
+    "notableAccomplishments": [
+        "One of the founding developers at Io-Tahoe (formerly Rokittech), a thriving data discovery & governance company based in New York City, known for pioneering the use of AI & ML techniques. Acquired twice, most recently by Hitachi Vantara in May 2021.",
+        "Expertise in Product Engineering, specializing in Data Quality, Data Governance, Data Catalog, Data Lineage, Sensitive Data Discovery, and Metadata Management for large enterprises.",
+        "Recognized for in-depth knowledge of product development.",
+        "Prepared numerous winning proposals, encompassing solutioning, effort estimation, cost analysis, resource allocation, and execution strategies.",
+        "Led multiple technology teams in areas such as Client-Server, Web, Mobile, IoT, Cloud, AI/ML, and Data Engineering.",
+        "Executed a wide range of development, maintenance, and support projects, catering to clients across the Americas, Europe, Middle East, and Asia Pacific regions.",
+        "Architected Radiology Information Systems and associated modules across web, mobile, and cloud platforms.",
+        "Established a 24x7 offshore BPO center in Bangalore, India, managing a team of 15 for tasks including scheduling, report faxing, and revenue cycle management.",
+        "Boasts a global work experience with roles in the USA, Japan, Ukraine, and Singapore, including three years spent in Japan with conversational Japanese skills.",
+        "A blogger since 2007 at www.senthilsweb.com, powered by Docker, EC2, Route53, and Traefik proxy. Actively maintains and contributes to open-source projects on GitHub at https://github.com/senthilsweb. The original blogging platform was on WordPress at https://senthilsweb.wordpress.com/."
+    ],
+    "certifications": [
+        {
+            "name": "Microsoft Certified Professional in Developing Web Applications with MS VB .Net and VS .Net",
+            "date": "",
+            "issuer": "Microsoft",
+            "url": ""
+        },
+        {
+            "name": "Microsoft Certified Professional in Designing Database with Microsoft SQL Server 2000",
+            "date": "",
+            "issuer": "Microsoft",
+            "url": ""
+        },
+        {
+            "name": "Microsoft Certified Professional in Developing Windows-Based Applications with MS VB .Net and VS .Net",
+            "date": "",
+            "issuer": "Microsoft",
+            "url": ""
+        }
+    ],
+    "work": [
+        {
+            "company": "Hitachi Vantara",
+            "position": "Senior Engineering Manager & Enterprise Data Solutions Architect",
+            "location": "New York City, NY",
+            "startDate": "2021-06-01",
+            "endDate": "",
+            "summary": "Following the acquisition of Io-Tahoe LLC by Hitachi Vantara, I stepped into a technical leadership role with the Pentaho+ Product Development Team. In this capacity, I oversee the Software Engineers in Test (SDET) and Release Engineering teams, contributing to engineering projects for data platform development. Additionally, I serve as a liaison for Customer Success and facilitate Sales Enablement initiatives."
+        },
+        {
+            "company": "Io-Tahoe LLC. (Consultant)",
+            "position": "Solutions Architect / Client Delivery & Head of Production Engineering",
+            "location": "New York City, NY",
+            "startDate": "2019-01-01",
+            "endDate": "2021-06-01",
+            "summary": "Managed projects in Data Governance, Data Catalog, Data Lineage, Metadata management for compliance requirements."
+        },
+        {
+            "company": "Io-Tahoe, Enterprise Data discovery product",
+            "position": "Solution Architect",
+            "location": "New York City, NY",
+            "startDate": "2015-01-01",
+            "endDate": "2017-07-01",
+            "summary": "Responsible for platform engineering, product ideation, and development using JAVA/J2EE and Python technologies."
+        },
+        {
+            "company": "AZ-Teach Radiology & Open MRI",
+            "position": "Solutions Architect",
+            "location": "Mesa, AZ",
+            "startDate": "2017-08-01",
+            "endDate": "2018-12-01",
+            "summary": "Upgraded IT systems, developed custom RIS, HL7 integration engine, and web/mobile apps for radiology centers."
+        },
+        {
+            "company": "Vmoksha Technologies Pvt. Ltd. & Inc.",
+            "position": "Solutions Architect",
+            "location": "NJ, USA & Bangalore, India",
+            "startDate": "2008-10-01",
+            "endDate": "2017-07-01",
+            "summary": "Architected and developed enterprise applications, including Dole Fresh Vegetables, SimplicITy, and more."
+        },
+        {
+            "company": "Digitalpia",
+            "position": "Programmer Analyst",
+            "location": "Matsuyama, Japan",
+            "startDate": "2006-02-01",
+            "endDate": "2008-09-01",
+            "summary": "Worked on multiple web and client-server projects using Oracle, MS SQL Server, and MS Access."
+        },
+        {
+            "company": "Infosys Technologies",
+            "position": "Team Leader",
+            "location": "Bangalore, India",
+            "startDate": "2004-07-01",
+            "endDate": "2006-01-01",
+            "summary": "Led solution engineering and technology consultation, project management, and performance optimization."
+        },
+        {
+            "company": "Hewlett Packard",
+            "position": "Systems Engineer",
+            "location": "Bangalore, India",
+            "startDate": "2003-11-01",
+            "endDate": "2004-07-01",
+            "summary": "Worked on Workforce Management Product and SMART CRAWLER for Information Security."
+        },
+        {
+            "company": "Mainstay Teleservices Pvt Ltd",
+            "position": "Senior Software Engineer",
+            "location": "Bangalore, India",
+            "startDate": "2002-11-01",
+            "endDate": "2003-07-01",
+            "summary": "Developed and maintained custom call center applications using Intel dialogic card, VB, and ASP."
+        },
+        {
+            "company": "Compudyne WinfoSystems Ltd",
+            "position": "Software Engineer",
+            "location": "Bangalore, India",
+            "startDate": "2000-11-01",
+            "endDate": "2002-03-01",
+            "summary": "Worked on various projects including online shopping, CMS, and more."
+        },
+        {
+            "company": "IBS Technologies",
+            "position": "Web Programmer",
+            "location": "Bangalore, India",
+            "startDate": "1999-05-01",
+            "endDate": "2000-11-01",
+            "summary": "Developed Online Telephone Directory Enquiry for Bangalore Telecom."
+        }
+    ]
+}

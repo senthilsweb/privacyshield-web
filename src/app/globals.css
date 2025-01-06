@@ -6,6 +6,21 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@font-face {
+  font-family: 'Hey August';
+  src: url('/fonts/Hey-August.ttf') format('truetype'),
+       url('/fonts/Hey-August.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;  /* This helps with performance */
+}
+
+/* Add a test class to verify the font is loading */
+.spotlight {
+  font-family: 'Hey August', sans-serif;
+  /* Add a distinctive color to make sure the style is applied */
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

@@ -133,7 +133,10 @@ export default {
 						}
 					}
 				}
-			}
+			},
+			fontFamily: {
+				'hey-august': ['var(--font-hey-august)'],
+			  },
 		}
 	},
 	safelist: [

@@ -18,7 +18,8 @@ import {
   Terminal,
   LineChart,
   SlidersHorizontal,
-  ChevronLeft, ChevronRight
+  ChevronLeft, ChevronRight,
+  Download
   
 } from "lucide-react";
 
@@ -43,4 +44,5 @@ export const Icons = {
   sliders: SlidersHorizontal,
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
+  download:Download,
 };

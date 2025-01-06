@@ -1,5 +1,4 @@
 ---
-
 title: "Seamlessly Deploying ERPNext's Healthcare Module named Frappe Health on Docker"
 slug: "deploying-erpnext-healthcare-module-on-docker"
 date: 2023-10-22T14:00:00.000Z

@@ -9,6 +9,7 @@ import YAML from 'yaml'
 import PipelineDiagram from '@/components/data-pipeline-diagram/pipeline-diagram'
 import Editor from '@/components/data-pipeline-diagram/editor'
 
+
 const defaultYaml = `title: Data Flow Architecture
 description: ETL pipeline from source databases to analytics
 nodes:

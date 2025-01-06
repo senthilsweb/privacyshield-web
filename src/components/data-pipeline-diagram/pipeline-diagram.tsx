@@ -37,62 +37,57 @@ const nodeTypes = {
 }
 
 const Flow = ({ nodes, edges, onNodesChange, onEdgesChange, onConnect }) => (
-    <ReactFlow
-      nodes={nodes}
-      edges={edges}
-      onNodesChange={onNodesChange}
-      onEdgesChange={onEdgesChange}
-      onConnect={onConnect}
-      nodeTypes={nodeTypes}
-      fitView
-      attributionPosition="bottom-left"
-    >
-      <Background
-        color="#2a2a2a"
-        gap={16}
-        size={1}
-        className="bg-muted"
-      />
-      <Controls className="bg-background border border-border" />
-    </ReactFlow>
+  <ReactFlow
+    nodes={nodes}
+    edges={edges}
+    onNodesChange={onNodesChange}
+    onEdgesChange={onEdgesChange}
+    onConnect={onConnect}
+    nodeTypes={nodeTypes}
+    fitView
+    attributionPosition="bottom-left"
+  >
+    <Background />
+    <Controls />
+  </ReactFlow>
+)
+
+const PipelineDiagram = ({ data }) => {
+  const [nodes, setNodes, onNodesChange] = useNodesState([])
+  const [edges, setEdges, onEdgesChange] = useEdgesState([])
+  const flowRef = useRef(null)
+
+  const onConnect = useCallback(
+    (params) => setEdges((eds) => addEdge(params, eds)),
+    [setEdges]
   )
-  
-  const PipelineDiagram = ({ data }) => {
-    const [nodes, setNodes, onNodesChange] = useNodesState([])
-    const [edges, setEdges, onEdgesChange] = useEdgesState([])
-    const flowRef = useRef(null)
-  
-    const onConnect = useCallback(
-      (params) => setEdges((eds) => addEdge(params, eds)),
-      [setEdges]
-    )
-  
-    const exportImage = useCallback(() => {
-      if (flowRef.current === null) return
-      const flowElement = flowRef.current.querySelector('.react-flow__renderer')
-      if (!flowElement) return
-  
-      const scale = 2
-      toPng(flowElement, { 
-        backgroundColor: '#fff',
-        pixelRatio: scale,
-        width: flowElement.offsetWidth * scale,
-        height: flowElement.offsetHeight * scale,
-        style: {
-          transform: `scale(${scale})`,
-          transformOrigin: 'top left'
-        }
+
+  const exportImage = useCallback(() => {
+    if (flowRef.current === null) return
+    const flowElement = flowRef.current.querySelector('.react-flow__renderer')
+    if (!flowElement) return
+
+    const scale = 2
+    toPng(flowElement, { 
+      backgroundColor: '#fff',
+      pixelRatio: scale,
+      width: flowElement.offsetWidth * scale,
+      height: flowElement.offsetHeight * scale,
+      style: {
+        transform: `scale(${scale})`,
+        transformOrigin: 'top left'
+      }
+    })
+      .then((dataUrl) => {
+        const link = document.createElement('a')
+        link.download = 'pipeline-diagram.png'
+        link.href = dataUrl
+        link.click()
       })
-        .then((dataUrl) => {
-          const link = document.createElement('a')
-          link.download = 'pipeline-diagram.png'
-          link.href = dataUrl
-          link.click()
-        })
-    }, [])
-  
-    useEffect(() => {
-      if (!data) return
+  }, [])
+
+  useEffect(() => {
+    if (!data) return
 
     // Create a map to store the level of each node
     const levels = new Map()
@@ -185,7 +180,7 @@ const Flow = ({ nodes, edges, onNodesChange, onEdgesChange, onConnect }) => (
   }, [data, setNodes, setEdges])
 
   return (
-    <div className="h-full relative" ref={flowRef}>
+    <div className="h-[600px] relative" ref={flowRef}>
       <ReactFlowProvider>
         <Flow
           nodes={nodes}
@@ -206,3 +201,4 @@ const Flow = ({ nodes, edges, onNodesChange, onEdgesChange, onConnect }) => (
 }
 
 export default PipelineDiagram
+

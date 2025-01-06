@@ -2,12 +2,12 @@
 export const siteConfig = {
     name: "TemplrJS",
     title: {
-      default: "TemplrJS: Open Source Developer Tooling Platform for React & Next.js",
+      default: "Senthil's Web: Blogs, Open Source Projects, and Knowledge Sharing",
       template: "%s | TemplrJS"
     },
-    description: "TemplrJS is an open-source framework leveraging ReactJS, Next.js, ShadCN, and TailwindCSS to build fast, performance-optimized web and mobile applications.",
+    description: "Senthilnathan's personal website for sharing insights on Data | AI | Product | and Digital Engineering, algorithms, databases/SQL, full-stack development, and community-driven learning.",
     url: "https://www.senthilsweb.com",
-    ogImage: "i/blog/templrjs-architecture.png",
+    ogImage: "i/blog/senthil-face-photo-sep-2024.jpg",
     authors: [
       {
         name: "Senthilnathan Karuppaiah",
@@ -80,11 +80,6 @@ export const siteConfig = {
                 title: "LinkedIn",
                 href: "https://www.linkedin.com/in/senthilsweb/",
                 icon: "linkedin"
-              },
-              {
-                title: "Instagram",
-                href: "https://instagram.com/senthilsweb",
-                icon: "instagram"
               }
             ]
           }
@@ -92,7 +87,7 @@ export const siteConfig = {
       ]
     },
     links: {
-      github: "https://github.com/senthilsweb/privacyshield-web/",
+      github: "https://github.com/senthilsweb/",
       twitter: "#"
     },
     locale: "en_US",
