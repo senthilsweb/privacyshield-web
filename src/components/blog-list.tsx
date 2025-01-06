@@ -27,10 +27,7 @@ const BlogList = ({ initialPosts }: { initialPosts: BlogPost[] }) => {
   };
 
   return (
-    <MaxWidthWrapper className="py-10">
-      <h1 className="text-3xl font-bold mb-8 md:text-4xl lg:text-5xl">
-        Blog Posts
-      </h1>
+    <MaxWidthWrapper>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {displayedPosts.map((post) => (
           <Link key={post.slug} href={`/blog/${post.slug}`} className="group">

@@ -1,9 +1,18 @@
 // src/components/landing-page.tsx
-import React from 'react';
+import React from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import BlogList from "@/components/blog-list";
+import { getBlogPosts } from "@/lib/blog";
 
-export const LandingPage = () => {
+export default async function LandingPage() {
+  const posts = await getBlogPosts();
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -16,7 +25,9 @@ export const LandingPage = () => {
             Innovate, Iterate, Inspire
           </div>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8">
-          Craft stunning web and mobile applications effortlessly with TemplrJS, an open-source rapid development platform. Say goodbye to coding from scratch and embrace seamless building and deployment.
+            Craft stunning web and mobile applications effortlessly with
+            TemplrJS, an open-source rapid development platform. Say goodbye to
+            coding from scratch and embrace seamless building and deployment.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button size="lg" className="bg-primary hover:bg-primary/90">
@@ -28,6 +39,15 @@ export const LandingPage = () => {
           </div>
         </div>
       </section>
+      {/* Recent Blog Posts */}
+      <section className="px-4 md:px-6 lg:px-8">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">
+            Recent Blog Posts
+          </h2>
+          <BlogList initialPosts={posts} />
+        </div>
+      </section>
 
       {/* Feature Cards */}
       <section className="py-20 px-4 md:px-6 lg:px-8 bg-muted/50">
@@ -35,13 +55,16 @@ export const LandingPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-60">
             <Card className="bg-gradient-to-br from-pink-500 to-rose-500">
               <CardHeader>
-                <CardTitle className='text-white text-xl font-semibold'>My Projects</CardTitle>
-                <CardDescription className='text-white'>
-                  &nbsp;
-                </CardDescription>
+                <CardTitle className="text-white text-xl font-semibold">
+                  My Projects
+                </CardTitle>
+                <CardDescription className="text-white">&nbsp;</CardDescription>
               </CardHeader>
-              <CardContent className='text-white'>
-              <p className='pb-4'>Dive into the diverse array of projects using our privacy shield technology.</p>
+              <CardContent className="text-white">
+                <p className="pb-4">
+                  Dive into the diverse array of projects using our privacy
+                  shield technology.
+                </p>
                 <Button variant="secondary" className="w-full">
                   Explore Projects
                 </Button>
@@ -50,13 +73,16 @@ export const LandingPage = () => {
 
             <Card className="bg-gradient-to-br from-purple-500 to-indigo-500">
               <CardHeader>
-                <CardTitle className='text-white text-xl font-semibold'>Developer Resources</CardTitle>
-                <CardDescription className='text-white'>
-                &nbsp;
-                </CardDescription>
+                <CardTitle className="text-white text-xl font-semibold">
+                  Developer Resources
+                </CardTitle>
+                <CardDescription className="text-white">&nbsp;</CardDescription>
               </CardHeader>
-              <CardContent className='text-white'>
-              <p className='pb-4'>Find comprehensive guides and resources to support your development journey..</p>
+              <CardContent className="text-white">
+                <p className="pb-4">
+                  Find comprehensive guides and resources to support your
+                  development journey..
+                </p>
                 <Button variant="secondary" className="w-full">
                   Access Resources
                 </Button>
@@ -65,13 +91,16 @@ export const LandingPage = () => {
 
             <Card className="bg-gradient-to-br from-yellow-400 to-orange-500">
               <CardHeader>
-                <CardTitle className='text-white text-xl font-semibold'>API Documentation</CardTitle>
-                <CardDescription className='text-white'>
-                &nbsp;
-                </CardDescription>
+                <CardTitle className="text-white text-xl font-semibold">
+                  API Documentation
+                </CardTitle>
+                <CardDescription className="text-white">&nbsp;</CardDescription>
               </CardHeader>
-              <CardContent className='text-white'>
-              <p className='pb-4'> Explore detailed API documentation for seamless integration.</p>
+              <CardContent className="text-white">
+                <p className="pb-4">
+                  {" "}
+                  Explore detailed API documentation for seamless integration.
+                </p>
                 <Button variant="secondary" className="w-full">
                   View Documentation
                 </Button>
@@ -82,4 +111,4 @@ export const LandingPage = () => {
       </section>
     </div>
   );
-};
+}
