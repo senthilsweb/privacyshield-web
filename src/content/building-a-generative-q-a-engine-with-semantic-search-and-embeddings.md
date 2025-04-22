@@ -62,7 +62,7 @@ This implementation extends **TemplrJS**, my open-source, full-stack rapid app d
 ![htmlpdf](/i/blog/building-a-generative-q&a_8.png)
 
 
-### Key Features
+## Key Features
 ::list{type="success"}
 Chunking and Tokenization: Efficiently chunk documents with token overlap for context retention.
 Embedding Generation: Generate dense vector embeddings for each chunk.
@@ -72,19 +72,19 @@ Batch Processing: Log and summarize successes and failures for observability.
 Future Proofing: Support for additional use cases such as test case management and content generation.
 ::
 
-### Source Code
+## Source Code
 **TBD: Will be added/linked shortly**
 
 Python version: Jupyter Notebook
 
 JavaScript version: 
 
-### REST API: Embedding Generation
+## REST API: Embedding Generation
 **Endpoint:** POST /api/embeddings/generate
 
 ![htmlpdf](/i/blog/building-a-generative-q&a_9.png)
 
-### Next Steps
+## Next Steps
 Stay tuned for **Part 2:** Semantic Search and Document Recommendations, where we’ll cover retrieval mechanisms and cosine similarity for document suggestions.
 
 ## Credits and References
