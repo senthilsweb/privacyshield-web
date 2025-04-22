@@ -1,7 +1,7 @@
 ---
 title: "Building a Generative Q&A Engine with Semantic Search and Embeddings"
 slug: building-a-generative-q-a-engine-with-semantic-search-and-embeddings
-date: 2024-12-26T12:00:00.000Z
+date: 2025-04-22T12:00:00.000Z
 published: true
 description: In the age of AI-powered tools and intelligent systems, the ability to search, analyze, and generate insights from documents has become paramount.
 industries: ['Technology','Software Development','Web Design']
@@ -10,7 +10,7 @@ ogImage: https://res.cloudinary.com/nathansweb/image/upload/w_800,c_fit,l_text:A
 author: Senthilnathan Karuppaiah
 avatar: "https://res.cloudinary.com/nathansweb/image/upload/v1626488903/profile/Senthil-profile-picture-01_al07i5.jpg"
 type: Blog
-tags: ['Vue.js','Nuxt.js','Open Source','Web Development','Low Code Platform']
+tags: ['Python','Langchain','Open Source','GenAI','ML']
 ---
 
 
