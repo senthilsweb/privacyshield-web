@@ -22,9 +22,9 @@ const CONTENT_PATH = path.join(process.cwd(), "src/content");
 
 // Single type for page props
 interface BlogParams {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Utility functions
@@ -84,7 +84,8 @@ async function getBlogPost(slug: string): Promise<BlogPost | null> {
 
 // Metadata generation
 export async function generateMetadata({ params }: BlogParams) {
-  const post = await getBlogPost(params.slug);
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
   
   if (!post) {
     return baseGenerateMetadata({
@@ -151,7 +152,8 @@ function BlogJsonLd({ post }: { post: BlogPost }) {
 
 // Main page component
 export default async function BlogPost({ params }: BlogParams) {
-  const post = await getBlogPost(params.slug);
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
 
   if (!post) {
     notFound();

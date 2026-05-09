@@ -24,9 +24,10 @@ async function getResumeData(slug: string): Promise<ResumeData | null> {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const data = await getResumeData(params.slug);
+  const { slug } = await params;
+  const data = await getResumeData(slug);
   
   if (!data) {
     return baseGenerateMetadata({
@@ -39,7 +40,7 @@ export async function generateMetadata({
     title: `Resume of ${data.basics.name}`,
     description: data.basics.summary,
     image: data.basics.picture,
-    url: `/resume/${params.slug}`,
+    url: `/resume/${slug}`,
     keywords: [...data.coreCompetencies, ...data.technicalCompetencies.map(tc => tc.name)]
   });
 }
@@ -61,9 +62,10 @@ export async function generateStaticParams() {
 export default async function ResumePage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const data = await getResumeData(params.slug);
+  const { slug } = await params;
+  const data = await getResumeData(slug);
 
   if (!data) {
     notFound();
