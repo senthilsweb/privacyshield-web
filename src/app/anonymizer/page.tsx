@@ -16,6 +16,7 @@ interface ProcessedResponse {
   faked_processed_text?: string;
   processed_text: string;
   endpoint?: string;
+  action?: string;
 }
 
 interface EntityStyle {
@@ -106,26 +107,21 @@ const AnonymizePage = () => {
   const [error, setError] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
   const [originalText, setOriginalText] = useState<string>("");
-  const [isAnonymizeOnly, setIsAnonymizeOnly] = useState(false);
+  const [activeAction, setActiveAction] = useState<string>("detect");
   const formRef = useRef<AnonymizeFormRef>(null);
   const { toast } = useToast();
 
 
   const handleButtonClick = async (data: any) => {
-    // Immediately set loading and clear previous response
     setIsLoading(true);
-
     setResponse(null);
     setError("");
-
-    const isAnonymizeOnlyOp = data.endpoint === '/detect-pii-entities';
-    setIsAnonymizeOnly(isAnonymizeOnlyOp);
+    setActiveAction(data.action ?? 'detect');
   };
 
   const handleResponse = (data: ProcessedResponse) => {
     setResponse(data);
-    const isPIIDetection = data.endpoint === '/detect-pii-entities';
-    setIsAnonymizeOnly(isPIIDetection);
+    setActiveAction(data.action ?? 'detect');
     setIsLoading(false);
   };
 
@@ -147,7 +143,7 @@ const AnonymizePage = () => {
     setError("");
     setIsLoading(false);
     setOriginalText("");
-    setIsAnonymizeOnly(false);
+    setActiveAction("detect");
     formRef.current?.reset();
   };
 
@@ -194,32 +190,57 @@ const AnonymizePage = () => {
                 />
               )}
 
-              {(isLoading || response) && (
+              {/* Detect PII Entities */}
+              {(isLoading || response) && activeAction === 'detect' && (
                 <ResponseSection
-                  title={isAnonymizeOnly ? "Detected Entities" : "Anonymized Text"}
-                  content={isAnonymizeOnly ? (response?.processed_text || '') : (response?.anonymized_text || '')}
+                  title="Detected Entities"
+                  content={response?.processed_text || ''}
                   isLoading={isLoading}
                 />
               )}
 
-              {!isAnonymizeOnly && response && (
+              {/* Anonymize — show anonymized + faked, no LLM output */}
+              {(isLoading || response) && activeAction === 'anonymize' && (
                 <>
+                  <ResponseSection
+                    title="Anonymized Text"
+                    content={response?.anonymized_text || ''}
+                    isLoading={isLoading}
+                  />
                   <ResponseSection
                     title="Faked Text"
                     content={response?.faked_text || ''}
                     isLoading={isLoading}
+                    show={isLoading || !!(response?.faked_text)}
                   />
+                </>
+              )}
 
+              {/* Enhance with LLM — show all fields */}
+              {(isLoading || response) && activeAction === 'enhance' && (
+                <>
+                  <ResponseSection
+                    title="Anonymized Text"
+                    content={response?.anonymized_text || ''}
+                    isLoading={isLoading}
+                  />
+                  <ResponseSection
+                    title="Faked Text"
+                    content={response?.faked_text || ''}
+                    isLoading={isLoading}
+                    show={isLoading || !!(response?.faked_text)}
+                  />
                   <ResponseSection
                     title="Faked Processed Text"
                     content={response?.faked_processed_text || ''}
                     isLoading={isLoading}
+                    show={isLoading || !!(response?.faked_processed_text)}
                   />
-
                   <ResponseSection
                     title="Processed Text"
                     content={response?.processed_text || ''}
                     isLoading={isLoading}
+                    show={isLoading || !!(response?.processed_text)}
                   />
                 </>
               )}

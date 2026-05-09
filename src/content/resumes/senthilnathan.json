@@ -3,7 +3,7 @@
         "name": "Senthilnathan Karuppaiah",
         "email": "nathansweb@icloud.com",
         "website": "https://www.senthilsweb.com",
-        "picture": "https://res.cloudinary.com/nathansweb/image/upload/v1626488903/profile/Senthil-profile-picture-01_al07i5.jpg",
+        "picture": "/images/senthil-profile-photo.png",
         "phone": "",
         "summary": "I am a seasoned Software Architect with extensive experience in product engineering, innovation, business analysis, and solution design. My expertise encompasses a broad range of technologies such as Data Engineering, Business Intelligence/Analytics, Data Lakehouse, Web Development, Mobility Solutions, and IoT. Driven by a passion for developing innovative solutions, I am dedicated to delivering success across these key domains.",
         "location": {

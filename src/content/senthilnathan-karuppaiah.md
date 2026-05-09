@@ -8,14 +8,14 @@ description: I am a seasoned hands-on Software Architect with more than two deca
 coverimage: 
 ogImage: 
 author: Senthilnathan Karuppaiah
-avatar: https://res.cloudinary.com/nathansweb/image/upload/v1626488903/profile/Senthil-profile-picture-01_al07i5.jpg
+avatar: /images/senthil-profile-photo.png
 type: Page
 tags: [Bio, About Me, Career]
 ---
 
 ## About Me
 
-<img src="https://res.cloudinary.com/nathansweb/image/upload/l_text:Arial_30:www.senthilsweb.com,co_rgb:808080,g_south_east,x_10,y_10/v1727025413/senthilsweb.com/avatars/senthil-face-photo-sep-2024.jpg" alt="Tilted and bordered image" class="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800" width="300" height="300"/>
+<img src="/images/senthil-profile-photo.png" alt="Tilted and bordered image" class="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800" width="300" height="300"/>
 
 
 I am a seasoned hands-on Software Architect with more than two decades of experience in product engineering and solution design. My journey in the tech industry began in 1999, and over the years, I've donned various roles, including Programmer, Team Lead, and Architect. With a relentless passion for innovation and technology, I've made significant contributions to startups, large enterprises, and multinational corporations.

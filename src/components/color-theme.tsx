@@ -43,11 +43,11 @@ const colors = [
 
 export function ColorTheme() {
   const { resolvedTheme, setTheme } = useTheme();
-  const [selectedColor, setSelectedColor] = React.useState('zinc');
+  const [selectedColor, setSelectedColor] = React.useState('teal');
   const [mounted, setMounted] = React.useState(false);
 
   useEffect(() => {
-    const savedColor = localStorage.getItem('color-theme') || 'zinc';
+    const savedColor = localStorage.getItem('color-theme') || 'teal';
     setSelectedColor(savedColor);
     document.documentElement.setAttribute('data-theme', savedColor);
     setMounted(true);

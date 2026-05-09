@@ -53,7 +53,7 @@ const llmModels = [
 
 const actionTypes = [
   { id: "detect", label: "Detect PII Entities", endpoint: "/detect-pii-entities" },
-  { id: "anonymize", label: "Anonymize", endpoint: null },
+  { id: "anonymize", label: "Anonymize", endpoint: "/anonymize-and-transform" },
   { id: "enhance", label: "Enhance with LLM and Reverse Anonymize", endpoint: "/anonymize-and-transform" }
 ];
 
@@ -148,16 +148,11 @@ export const AnonymizeForm = forwardRef<AnonymizeFormRef, AnonymizeFormProps>((
       return;
     }
 
-    if (selectedAction === 'anonymize') {
-      onError("This feature is not implemented yet. Please try other options.");
-      return;
-    }
-
     setIsLoading(true);
-    onLoadingChange({ endpoint: selectedActionType.endpoint });
+    onLoadingChange({ endpoint: selectedActionType.endpoint, action: selectedAction });
     onError("");
 
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://api-privacyshield.nathansweb.com";
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://privacyshield.nathansweb.com";
 
     try {
       const response = await fetch(`${baseUrl}${selectedActionType.endpoint}`, {
@@ -172,7 +167,7 @@ export const AnonymizeForm = forwardRef<AnonymizeFormRef, AnonymizeFormProps>((
       if (!response.ok) {
         throw new Error(data.detail || "Failed to process request");
       }
-      onResponse({ ...data, endpoint: selectedActionType.endpoint });
+      onResponse({ ...data, endpoint: selectedActionType.endpoint, action: selectedAction });
     } catch (err) {
       onError(err instanceof Error ? err.message : "An error occurred");
     } finally {
